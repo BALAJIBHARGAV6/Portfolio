@@ -1,0 +1,90 @@
+.wrap--narrow{ max-width:560px; }
+
+.contact__intro{
+  color:var(--muted);
+  font-size:.98rem;
+  line-height:1.7;
+  margin-bottom:32px;
+}
+
+.contact__panel{
+  padding:26px;
+}
+
+.contact__form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.contact__field{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+}
+.contact__panel.in .contact__field:nth-child(1){ transition-delay:.08s; }
+.contact__panel.in .contact__field:nth-child(2){ transition-delay:.16s; }
+.contact__panel.in .contact__field:nth-child(3){ transition-delay:.24s; }
+.contact__panel.in .contact__field{
+  opacity:1;
+  transform:translateY(0);
+}
+.contact__field label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:.66rem;
+  letter-spacing:.16em;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:6px;
+}
+.contact__field input,
+.contact__field textarea{
+  width:100%;
+  border:2.5px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  padding:10px 13px;
+  font-family:var(--font-body);
+  font-size:.9rem;
+  outline:none;
+  resize:vertical;
+  transition:border-color var(--speed-fast), transform var(--speed-fast), box-shadow var(--speed-fast);
+}
+.contact__field input:focus,
+.contact__field textarea:focus{
+  border-color:var(--accent);
+  transform:translate(-2px,-2px);
+  box-shadow:3px 3px 0 var(--accent);
+}
+
+.contact__form > button{
+  align-self:flex-start;
+  transition:transform var(--speed-fast), box-shadow var(--speed-fast), background var(--speed-fast), color var(--speed-fast);
+}
+.contact__form > button:active{
+  transform:translate(0,0) scale(.97);
+}
+
+.contact__error{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  color:var(--danger);
+}
+
+.contact__success{
+  text-align:center;
+  padding:22px 10px;
+  animation:successPop .5s var(--ease);
+}
+@keyframes successPop{
+  from{ opacity:0; transform:scale(.92); }
+  to{ opacity:1; transform:scale(1); }
+}
+.contact__success-title{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.3rem;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.contact__success p{ color:var(--muted); font-size:.9rem; }

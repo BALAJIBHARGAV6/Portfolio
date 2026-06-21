@@ -1,0 +1,176 @@
+/* ============================================================
+   GLOBAL TOKENS — Brutalism, Dual Theme
+   Dark  : black canvas + neon green accent
+   Light : bone canvas + dark-yellow accent + black structure
+   ============================================================ */
+
+:root{
+  --font-display:'Unbounded', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+
+  --speed-fast:.15s;
+  --speed:.35s;
+  --speed-slow:.6s;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+html[data-theme="dark"]{
+  --bg:#0a0a0a;
+  --bg-alt:#050505;
+  --surface:#121212;
+  --surface-alt:#181818;
+  --text:#f3f3f0;
+  --muted:#9a9a92;
+  --border:#f3f3f0;
+  --accent:#39ff14;
+  --on-accent:#06140a;
+  --danger:#ff5d5d;
+}
+
+html[data-theme="light"]{
+  --bg:#fbf9f2;
+  --bg-alt:#f1ecda;
+  --surface:#ffffff;
+  --surface-alt:#f1ecda;
+  --text:#0a0a0a;
+  --muted:#54503f;
+  --border:#0a0a0a;
+  --accent:#f0bd3d;
+  --on-accent:#0a0a0a;
+  --danger:#c4271f;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body,h1,h2,h3,h4,p,ul,figure{ margin:0; padding:0; }
+ul{ list-style:none; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; }
+img{ max-width:100%; display:block; }
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--speed) var(--ease), color var(--speed) var(--ease);
+  overflow-x:hidden;
+}
+
+::selection{ background:var(--accent); color:var(--on-accent); }
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:var(--accent); }
+
+:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* ---------- layout helpers ---------- */
+.wrap{ max-width:1180px; margin:0 auto; padding-inline:28px; }
+.section{ border-top:3px solid var(--border); padding:96px 0; position:relative; }
+.section-alt{ background:var(--bg-alt); }
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  letter-spacing:.32em;
+  color:var(--accent);
+  font-weight:600;
+  display:inline-block;
+  margin-bottom:14px;
+}
+
+.h2{
+  font-family:var(--font-display);
+  font-size:clamp(2.1rem,5vw,3.8rem);
+  font-weight:800;
+  line-height:1.02;
+  letter-spacing:-0.01em;
+  margin-bottom:52px;
+}
+.h2 span{ color:var(--accent); }
+
+/* ---------- brutal primitives ---------- */
+.brut-box{
+  border:3px solid var(--border);
+  box-shadow:8px 8px 0 var(--accent);
+  background:var(--surface);
+  transition:transform var(--speed-fast), box-shadow var(--speed-fast);
+}
+.brut-box:hover{
+  transform:translate(-4px,-4px);
+  box-shadow:12px 12px 0 var(--accent);
+}
+
+.tag-chip{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  padding:4px 10px;
+  border:1.5px solid var(--border);
+  background:var(--surface-alt);
+}
+
+.btn{
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:14px 26px;
+  border:3px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  transition:transform var(--speed-fast), box-shadow var(--speed-fast), background var(--speed-fast), color var(--speed-fast);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn:hover{
+  background:var(--accent);
+  color:var(--on-accent);
+  box-shadow:5px 5px 0 var(--border);
+  transform:translate(-3px,-3px);
+}
+.btn-solid{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--on-accent);
+}
+.btn-solid:hover{
+  background:transparent;
+  color:var(--text);
+  box-shadow:5px 5px 0 var(--accent);
+}
+
+mark.kw{
+  background:var(--accent);
+  color:var(--on-accent);
+  font-weight:700;
+  padding:0 5px;
+  font-style:normal;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.in{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px){
+  .section{ padding:72px 0; }
+}

@@ -1,0 +1,37 @@
+.about__grid{
+  display:grid;
+  grid-template-columns:3fr 2fr;
+  gap:52px;
+}
+
+.about__para{
+  font-size:1.05rem;
+  line-height:1.85;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.about__cards{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.about__card{
+  padding:16px 18px;
+}
+.about__card-label{
+  font-family:var(--font-mono);
+  font-size:.66rem;
+  letter-spacing:.18em;
+  color:var(--accent);
+  margin-bottom:6px;
+  font-weight:700;
+}
+.about__card-value{
+  font-weight:700;
+  font-size:.95rem;
+}
+
+@media (max-width:860px){
+  .about__grid{ grid-template-columns:1fr; }
+}

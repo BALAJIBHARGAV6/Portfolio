@@ -1,0 +1,113 @@
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+  overflow:hidden;
+}
+.loader--leave{
+  opacity:0;
+  transform:translateY(-2%);
+  pointer-events:none;
+}
+
+.loader__scan{
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    var(--accent) 3px,
+    transparent 4px
+  );
+  opacity:.04;
+  animation:scanmove 6s linear infinite;
+}
+@keyframes scanmove{
+  from{ background-position-y:0; }
+  to{ background-position-y:600px; }
+}
+
+.loader__inner{
+  width:min(440px, 86vw);
+  font-family:var(--font-mono);
+}
+
+.loader__mark{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:36px;
+}
+.loader__mark span:first-child{
+  font-family:var(--font-display);
+  font-size:3.4rem;
+  font-weight:900;
+  color:var(--accent);
+  letter-spacing:-0.02em;
+  line-height:1;
+}
+.loader__mark-sub{
+  font-size:.72rem;
+  letter-spacing:.3em;
+  color:var(--muted);
+  margin-top:8px;
+}
+
+.loader__lines{
+  min-height:150px;
+  margin-bottom:24px;
+}
+.loader__line{
+  font-size:.78rem;
+  color:var(--muted);
+  margin-bottom:6px;
+  letter-spacing:.02em;
+}
+.loader__caret{ color:var(--accent); font-weight:700; }
+.loader__ok{
+  color:var(--accent);
+  font-weight:700;
+  margin-left:8px;
+  font-size:.7rem;
+  letter-spacing:.1em;
+}
+.loader__blink{
+  animation:blink 1s steps(2) infinite;
+  color:var(--accent);
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+.loader__bar-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.loader__bar{
+  flex:1;
+  border:2px solid var(--border);
+  padding:4px;
+}
+.loader__bar-track{
+  display:flex;
+  gap:2px;
+}
+.loader__bar-track span{
+  flex:1;
+  height:14px;
+  background:var(--surface-alt);
+}
+.loader__bar-track span.on{
+  background:var(--accent);
+}
+.loader__pct{
+  font-weight:700;
+  font-size:.9rem;
+  color:var(--accent);
+  width:48px;
+  text-align:right;
+}

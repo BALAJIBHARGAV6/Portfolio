@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Balaji Bhargav — Full Stack Developer (React · Node.js · React Native)</title>
+    <meta name="title" content="Balaji Bhargav — Full Stack Developer (React · Node.js · React Native)" />
+    <meta name="description" content="Balaji Bhargav is a Full Stack Developer with 1.5+ years building production web, mobile and e-commerce platforms across healthcare, education and government sectors. Open to full-time roles." />
+    <meta name="keywords" content="Balaji Bhargav, Full Stack Developer, React Developer, Next.js, React Native Developer, Node.js Developer, Angular Developer, Hyderabad Developer, Software Engineer Portfolio" />
+    <meta name="author" content="Balaji Bhargav" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://balajibhargav-portfolio.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://balajibhargav-portfolio.vercel.app/" />
+    <meta property="og:title" content="Balaji Bhargav — Full Stack Developer" />
+    <meta property="og:description" content="Production-grade web, mobile and e-commerce platforms across healthcare, education and government sectors. Open to full-time roles." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Balaji Bhargav — Full Stack Developer" />
+    <meta name="twitter:description" content="React · Node.js · React Native · Angular — Open to full-time roles." />
+
+    <!-- Dark theme favicon (green) -->
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%2339FF14' text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Balaji Bhargav",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://balajibhargav-portfolio.vercel.app/",
+        "sameAs": [
+          "https://github.com/BALAJIBHARGAV6",
+          "https://www.linkedin.com/in/balaji-bhargav-95a149260/"
+        ],
+        "knowsAbout": ["React", "Next.js", "React Native", "Node.js", "Angular", "TypeScript"]
+      }
+    </script>
+
+    <!--
+      Theme-aware favicon swapper.
+      Runs immediately (before paint) and also watches <html data-theme="...">
+      for changes, so flipping the site's theme toggle updates the tab icon too.
+      Dark theme  -> green "BB" on black
+      Light theme -> amber "BB" on dark-cream, to match the light-mode accent
+    -->
+    <script>
+      (function () {
+        var DARK_ICON =
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%2339FF14' text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E";
+        var LIGHT_ICON =
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FBF6E9'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' fill='%23E0A812' text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E";
+
+        function applyFavicon() {
+          var theme = document.documentElement.getAttribute("data-theme");
+          var link = document.getElementById("favicon");
+          if (!link) return;
+          link.setAttribute("href", theme === "light" ? LIGHT_ICON : DARK_ICON);
+        }
+
+        applyFavicon();
+
+        var observer = new MutationObserver(applyFavicon);
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["data-theme"]
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to view this portfolio.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
