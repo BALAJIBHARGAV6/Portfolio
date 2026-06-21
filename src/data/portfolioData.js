@@ -69,8 +69,8 @@ export const experience = [
   {
     role: "Full Stack Developer",
     company: "Team5 — Independent / Freelance",
-    period: "Jul 2024 — Jan 2026",
-    duration: "1 years 7 months",
+    period: "Jul 2024 — Mar 2026",
+    duration: "1 years 8 months",
     location: "Remote, India",
     tag: "FREELANCE",
     summary:
