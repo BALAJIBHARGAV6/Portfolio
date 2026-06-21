@@ -33,6 +33,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
+    <!--
+      Critical inline styles — paints the correct background colour
+      the instant the HTML loads, before any external CSS or the JS
+      bundle has parsed. This is what removes the white flash: without
+      this, the browser paints its default white background first,
+      then waits for React + hero.css/loader.css to load before the
+      dark/light background ever appears.
+    -->
+    <style>
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background: #0a0a0a; /* matches dark-theme --bg, default until theme script runs */
+      }
+      html[data-theme="light"],
+      html[data-theme="light"] body,
+      html[data-theme="light"] #root {
+        background: #fbf6e9; /* matches light-theme --bg */
+      }
+    </style>
+
+    <!--
+      Early theme-detection script. Runs synchronously in <head>, before
+      <body> paints, so the correct data-theme attribute (and therefore
+      the correct background colour above) is applied on the very first
+      frame — not after React mounts and runs its own theme effect.
+      Reads the same localStorage key your React app uses to persist
+      theme choice; adjust the key name below if yours differs.
+    -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved === "light" || saved === "dark"
+            ? saved
+            : (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
