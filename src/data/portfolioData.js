@@ -115,7 +115,7 @@ export const projects = [
     desc: "Government healthcare platform for Employees' State Insurance (ESI) hospitals — patient discovery mobile app and admin dashboard with offline support, maps integration and role-based access.",
     github: "https://github.com/BALAJIBHARGAV6/ESI-Hospital",
     highlight: "GOVERNMENT",
-    sector: "Government Healthcare"
+    sector: "Govt Healthcare"
   },
   {
     title: "Inventory Management & E-Commerce",
